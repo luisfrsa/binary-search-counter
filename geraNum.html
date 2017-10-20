@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div id='res'></div>
+<script>
+	function sortNumber(a,b) {
+    	return a - b;
+	}
+	var res='int v[] =';
+	var len_array=100;
+	var max_rand=30;
+	for(var i=0;i<=0;i++){
+		var array=[];
+		while(array.length<len_array){
+			array.push(Math.floor((Math.random() * max_rand) + 1));
+		}
+		console.log(array);
+		array = array.sort(sortNumber);
+		res+="{"+array+"};";
+	}
+	res+='';
+	document.getElementById('res').innerHTML=res;
+	</script>
+</body>
+</html>
