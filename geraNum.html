@@ -7,20 +7,21 @@
 	function sortNumber(a,b) {
     	return a - b;
 	}
-	var res='int v[] =';
-	var len_array=100;
-	var max_rand=30;
+	var res='';
+	var len_array=10000;
+	var max_rand=1000;
 	for(var i=0;i<=0;i++){
 		var array=[];
 		while(array.length<len_array){
 			array.push(Math.floor((Math.random() * max_rand) + 1));
 		}
 		console.log(array);
-		array = array.sort(sortNumber);
-		res+="{"+array+"};";
+		//array = array.sort(sortNumber);
+		res+=""+array+" ";
+		
 	}
 	res+='';
-	document.getElementById('res').innerHTML=res;
+	document.getElementById('res').innerHTML=array.join("<br>");
 	</script>
 </body>
 </html>
