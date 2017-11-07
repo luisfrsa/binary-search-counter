@@ -158,7 +158,7 @@ int main(int argc, char *argv[]){
  		   cpu_time_usedM;
 
  /****************FIM DEFINICAO DE VARIAVEIS****************/
- 		   
+
 	printf("\n Digite o nome do arquivo para ser carregado: ");
 	scanf("%[^\n]",arquivo);
 
@@ -176,13 +176,10 @@ int main(int argc, char *argv[]){
 		}
 
 	    mergeSort(v, 0, ind - 1);
-
-	
-     
+	    
      	startS = clock();    
 		countSimples = simpleCount(v,target,ind);
 		endS = clock();
-
 		
      	startM = clock();    
 		countMine = mySearch(v,target,ind,0,ind);
