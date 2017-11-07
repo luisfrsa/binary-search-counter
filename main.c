@@ -19,6 +19,9 @@ void print_array(int *array, int length){
     	printf("\narray[%d] => %d; ",i,array[i]);
     }
 }
+/*
+Fonte: http://www.geeksforgeeks.org/merge-sort/
+*/
 void merge(int arr[], int l, int m, int r){
     int i, j, k;
     int n1 = m - l + 1;
@@ -54,6 +57,9 @@ void merge(int arr[], int l, int m, int r){
         k++;
     }
 }
+/*
+Fonte: http://www.geeksforgeeks.org/merge-sort/
+*/
 void mergeSort(int arr[], int l, int r){
     if (l < r)    {
         int m = l+(r-l)/2;
@@ -129,26 +135,37 @@ int mySearch(int arr[],int target,int array_length,int init, int end){
 
 int main(int argc, char *argv[]){
 	
-	char arquivo[50]; 
 	size_t len = 0;
+
 	FILE *file;
+
 	char *line = NULL,
 	     *split,
-		 read;
+		 read,
+		 arquivo[50];
 	long ind =0;
 	int target,
 		*v,
 		countSimples,
 		countMine;	
 
+	clock_t startS, 
+			endS,
+			startM, 
+			endM;
+
+ 	double cpu_time_usedS, 
+ 		   cpu_time_usedM;
+
+ /****************FIM DEFINICAO DE VARIAVEIS****************/
+ 		   
 	printf("\n Digite o nome do arquivo para ser carregado: ");
-	//scanf("%[^\n]",arquivo);
+	scanf("%[^\n]",arquivo);
 
 	printf("\n Digite o numero a ser buscado: ");
-	//scanf("%d", &target);
-	target=-1;
+	scanf("%d", &target);
 
-	file = fopen("data/2000000.data", "r");
+	file = fopen(arquivo, "r");
 	if(file != NULL){
 		while ((read = getline(&line, &len, file)) != -1) {
 			while((split = strsep(&line," ")) != NULL ){
@@ -160,8 +177,7 @@ int main(int argc, char *argv[]){
 
 	    mergeSort(v, 0, ind - 1);
 
-		clock_t startS, endS,startM, endM;
-     	double cpu_time_usedS, cpu_time_usedM;
+	
      
      	startS = clock();    
 		countSimples = simpleCount(v,target,ind);
@@ -184,26 +200,3 @@ int main(int argc, char *argv[]){
 	printf("\n");
     return 0;
 }
-
-/*
-srand(time(NULL));
-		int r = rand() % 1000000;	
-		r = r + 1000;
-		int v[r];
-		for(int i=0;i<r;i++){
-			v[i] = rand() % 10;
-		}
-	    mergeSort(v, 0, r - 1);
-	    int countSimples;
-		int countMine;
-		int target = 2;
-		//print_array(v,r);
-		countSimples = simpleCount(v,target,r);
-
-		countMine = mySearch(v,target,r,0,r);
-
-		printf("\n Foram encontradas %d ocorrencias countSimples\n ",countSimples);
-		printf("\n Foram encontradas %d ocorrencias countMine\n ",countMine);
-*/
-
-
